@@ -8,6 +8,12 @@ importers:
 
   .:
     dependencies:
+      '@types/body-parser':
+        specifier: ^1.19.5
+        version: 1.19.5
+      body-parser:
+        specifier: ^1.20.3
+        version: 1.20.3
       dotenv:
         specifier: ^16.4.5
         version: 16.4.5
@@ -17,12 +23,18 @@ importers:
       express:
         specifier: ^4.21.0
         version: 4.21.0
+      express-async-handler:
+        specifier: ^1.2.0
+        version: 1.2.0
       mongodb:
         specifier: ^6.9.0
         version: 6.9.0
       mongoose:
         specifier: ^8.7.0
         version: 8.7.0
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
     devDependencies:
       '@types/express':
         specifier: ^5.0.0
@@ -276,6 +288,9 @@ packages:
   etag@1.8.1:
     resolution: {integrity: sha512-aIL5Fx7mawVa300al2BnEE4iNvo1qETxLrPI/o05L7z6go7fCw1J6EQmbK4FmJ2AS7kgVF/KEZWufBfdClMcPg==}
     engines: {node: '>= 0.6'}
+
+  express-async-handler@1.2.0:
+    resolution: {integrity: sha512-rCSVtPXRmQSW8rmik/AIb2P0op6l7r1fMW538yyvTMltCO4xQEWMmobfrIxN2V1/mVrgxB8Az3reYF6yUZw37w==}
 
   express@4.21.0:
     resolution: {integrity: sha512-VqcNGcj/Id5ZT1LZ/cfihi3ttTn+NJmkli2eZADigjq29qTlWi/hAQ43t/VLPq8+UX06FCEx3ByOYet6ZFblng==}
@@ -653,6 +668,9 @@ packages:
     resolution: {integrity: sha512-Ux4ygGWsu2c7isFWe8Yu1YluJmqVhxqK2cLXNQA5AcC3QfbGNpM7fu0Y8b/z16pXLnFxZYvWhd3fhBY9DLmC6Q==}
     engines: {node: '>=6'}
 
+  zod@3.23.8:
+    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
+
 snapshots:
 
   '@cspotcode/source-map-support@0.8.1':
@@ -884,6 +902,8 @@ snapshots:
   escape-html@1.0.3: {}
 
   etag@1.8.1: {}
+
+  express-async-handler@1.2.0: {}
 
   express@4.21.0:
     dependencies:
@@ -1272,3 +1292,5 @@ snapshots:
       webidl-conversions: 7.0.0
 
   yn@3.1.1: {}
+
+  zod@3.23.8: {}
