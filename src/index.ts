@@ -1,5 +1,6 @@
 import dotenv from "dotenv";
 import express, { Express, Request, Response } from "express";
+import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import path from "path";
 import shopRouter from "./routes/shop";
@@ -24,6 +25,7 @@ app.set("view engine", "ejs");
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 app.get("/", (req: Request, res: Response) => {
   res.redirect("/shop");
