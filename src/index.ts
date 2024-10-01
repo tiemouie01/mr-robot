@@ -1,7 +1,8 @@
+import dotenv from "dotenv";
 import express, { Express, Request, Response } from "express";
 import mongoose from "mongoose";
 import path from "path";
-import dotenv from "dotenv";
+import shopRouter from "./routes/shop";
 
 dotenv.config();
 
@@ -25,8 +26,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.get("/", (req: Request, res: Response) => {
-  res.send("My Server");
+  res.redirect("/shop");
 });
+app.use("/shop", shopRouter);
 
 app.listen(port, () => {
   console.log(`[server]: Server is running at http://localhost:${port}`);
