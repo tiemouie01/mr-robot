@@ -9,6 +9,6 @@ CategorySchema.virtual("url").get(function () {
   return `/shop/category/${this._id}`;
 });
 
-const CategoryModel = model("Category", CategorySchema);
+const Category = model("Category", CategorySchema);
 
-export default CategoryModel;
+export default Category;

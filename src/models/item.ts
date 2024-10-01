@@ -12,6 +12,6 @@ ItemSchema.virtual("url").get(function () {
   return `/shop/item/${this._id}`;
 });
 
-const ItemModel = model("Item", ItemSchema);
+const Item = model("Item", ItemSchema);
 
-export default ItemModel;
+export default Item;
