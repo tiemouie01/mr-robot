@@ -1,5 +1,6 @@
 import express, { Express, Request, Response } from "express";
 import mongoose from "mongoose";
+import path from "path";
 import dotenv from "dotenv";
 
 dotenv.config();
@@ -14,6 +15,10 @@ async function main() {
 
 const app: Express = express();
 const port = process.env.PORT || 3000;
+
+// View engine setup
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 
 app.get("/", (req: Request, res: Response) => {
   res.send("My Server");
