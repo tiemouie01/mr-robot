@@ -26,7 +26,7 @@ shopRouter.post(
 shopRouter.get("/items", itemController.item_list);
 shopRouter.get("/item/create", itemController.item_create_get);
 shopRouter.post("/item/create", itemController.item_create_post);
-shopRouter.get("/item:/:id/delete", itemController.item_delete_get);
+shopRouter.get("/item/:id/delete", itemController.item_delete_get);
 shopRouter.post("/item/:id/delete", itemController.item_delete_post);
 shopRouter.get("/item/:id", itemController.item_detail);
 shopRouter.get("/item/:id/update", itemController.item_update_get);
