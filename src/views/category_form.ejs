@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/output.css" />
+  <title>Grocery | <%= title %>
+  </title>
+</head>
+
+<body class="dark:bg-black dark:text-white grid">
+  <div class="grid md:grid-cols-[auto_1fr]">
+    <%- include("./sidebar") %>
+      <main class="flex flex-col gap-4 justify-center items-center bg-zinc-700">
+        <h1 class="text-5xl font-bold">Create Category</h1>
+        <form class="p-16 bg-black rounded-xl shadow-lg space-y-2" method="post">
+          <div class="grid">
+            <label class="text-xl" for="name">Name:</label>
+            <input type="text" name="name" id="name" class="dark:text-black p-2"
+              placeholder="House Appliances, Electronics etc..." required
+              value="<%= category === null ? "" : category.name %>" />
+          </div>
+          <div class="grid">
+            <label class="text-xl" for="desc">Description:</label>
+            <input type="text" name="description" id="desc" class="dark:text-black p-2"
+              placeholder="All sorts of electronics ranging from phones to laptops..."
+              value="<%= category === null ? "" : category.description %>" />
+          </div>
+          <button class="flex m-auto p-4 text-xl fond-medium bg-white text-black rounded-xl"
+            type="submit">Submit</button>
+        </form>
+        <% if (errors) { %>
+          <ul>
+            <% errors.forEach((error)=> { %>
+              <li>
+                <%= error.msg %>
+              </li>
+              <% }); %>
+          </ul>
+          <% } %>
+      </main>
+  </div>
+</body>
+
+</html>

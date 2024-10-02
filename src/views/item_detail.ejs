@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/output.css" />
+  <title>Grocery | <%= title %>
+  </title>
+</head>
+
+<body class="dark:bg-black dark:text-white grid">
+  <div class="grid md:grid-cols-[auto_1fr]">
+    <%- include("./sidebar") %>
+      <main class="p-16 space-y-4">
+        <h1 class="text-5xl font-bold">
+          <%= item.name %>
+        </h1>
+        <p class="text-xl font-semibold">Description: <span class="font-normal">
+            <%= item.description %>
+          </span></p>
+        <p class="text-xl font-semibold">Category: <span class="font-normal">
+            <%= item.category.name %>
+          </span></p>
+        <p class="text-xl font-semibold">Price: <span class="font-normal">
+            <%= item.price %>
+          </span></p>
+        <p class="text-xl font-semibold">Number of in stock: <span class="font-normal">
+            <%= item.stock %>
+          </span></p>
+        <section>
+          <button class="m-auto p-4 text-xl fond-medium bg-white text-black rounded-xl"><a href=<%=`${item.url}/update`
+              %>>Update</a></button>
+          <button class="m-auto p-4 text-xl fond-medium bg-white text-black rounded-xl"><a href=<%=`${item.url}/delete`
+              %>>Delete</a></button>
+        </section>
+      </main>
+  </div>
+</body>
+
+</html>

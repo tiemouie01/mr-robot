@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/output.css" />
+  <title>Grocery | <%= title %>
+  </title>
+</head>
+
+<body class="dark:bg-black dark:text-white grid">
+  <div class="grid md:grid-cols-[auto_1fr]">
+    <%- include("./sidebar") %>
+      <main class="flex flex-col p-16 gap-4">
+        <header class="space-y-2">
+          <h1 class="text-5xl font-bold">
+            <%= category.name %>
+          </h1>
+          <p class="text-xl font-medium">
+            <%= category.description %>
+          </p>
+        </header>
+        <section class="space-y-4">
+          <h2 class="text-3xl font-semibold">Items in Category</h2>
+          <% if (categoryItems.length> 0) { %>
+            <div class="grid gap-4 grid-cols-2">
+              <% categoryItems.forEach((item)=> { %>
+                <a class="grid p-4 bg-zinc-500" href=<%=item.url %>>
+                  <h3 class="text-xl font-semibold">
+                    <%= item.name %>
+                  </h3>
+                  <p>
+                    <%= item.description %>
+                  </p>
+                </a>
+                <% }); %>
+                  <% } else { %>
+                    <p>There are no items in this category.</p>
+                    <% } %>
+                      <div>
+                        <button class="p-4 mr-auto text-xl fond-medium bg-white text-black rounded-xl"><a
+                            href=<%=`${category.url}/update` %>>Update</a></button>
+                        <button class="p-4 mr-auto text-xl fond-medium bg-white text-black rounded-xl"><a
+                            href=<%=`${category.url}/delete` %>>Delete</a></button>
+                      </div>
+            </div>
+        </section>
+      </main>
+  </div>
+</body>
+
+</html>

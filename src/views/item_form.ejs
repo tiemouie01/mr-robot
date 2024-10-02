@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/output.css" />
+  <title>Grocery | <%= title %>
+  </title>
+</head>
+
+<body class="dark:bg-black dark:text-white grid">
+  <div class="grid md:grid-cols-[auto_1fr]">
+    <%- include("./sidebar") %>
+      <main class="flex flex-col gap-4 justify-center items-center bg-zinc-700">
+        <h1 class="text-5xl font-bold">
+          <%= title %>
+        </h1>
+        <form class="p-16 bg-black rounded-xl shadow-lg space-y-2" method="post">
+          <div class="grid">
+            <label class="text-xl" for="name">Name:</label>
+            <input type="text" name="name" id="name" class="dark:text-black p-2"
+              placeholder="House Appliances, Electronics etc..." required
+              value="<%= item === null ? "" : item.name %>" />
+          </div>
+          <div class="grid">
+            <label class="text-xl" for="desc">Description:</label>
+            <input type="text" name="description" id="desc" class="dark:text-black p-2"
+              placeholder="All sorts of electronics ranging from phones to laptops..."
+              value="<%= item === null ? "" : item.description %>" />
+          </div>
+          <div>
+            <label class="text-xl" for="category">Category:</label>
+            <select name="category" class="text-black p-2" id="category">
+              <option value="">-- Please select a category --</option>
+              <% for (key in categories) { %>
+                <% if (item) { %>
+                  <% if (categories[key]._id.toString()===item.category._id.toString()) { %>
+                    <option value=<%=categories[key]._id %> selected>
+                      <%= categories[key].name %>
+                    </option>
+                    <% } else { %>
+                      <option value=<%=categories[key]._id %>>
+                        <%= categories[key].name %>
+                      </option>
+                      <% } %>
+                        <% } else { %>
+                          <option value=<%=categories[key]._id %>>
+                            <%= categories[key].name %>
+                          </option>
+                          <% } %>
+                            <% } %>
+            </select>
+          </div>
+          <div class="grid">
+            <label class="text-xl" for="price">Price in MWK:</label>
+            <input type="number" name="price" id="price" class="dark:text-black p-2" placeholder="2000, 3500..."
+              value="<%= item === null ? "" : item.price %>" />
+          </div>
+          <div class="grid">
+            <label class="text-xl" for="stock">Number in Stock:</label>
+            <input type="number" name="stock" id="stock" class="dark:text-black p-2" placeholder="10, 35, 40..."
+              value="<%= item === null ? "" : item.stock %>" />
+          </div>
+          <button class="flex m-auto p-4 text-xl fond-medium bg-white text-black rounded-xl"
+            type="submit">Submit</button>
+        </form>
+        <% if (errors) { %>
+          <ul>
+            <% errors.forEach((error)=> { %>
+              <li>
+                <%= error.msg %>
+              </li>
+              <% }); %>
+          </ul>
+          <% } %>
+      </main>
+  </div>
+</body>
+
+</html>

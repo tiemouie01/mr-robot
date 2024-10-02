@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/output.css" />
+  <title>Grocery | <%= title %>
+  </title>
+</head>
+
+<body class="dark:bg-black dark:text-white grid">
+  <div class="grid md:grid-cols-[auto_1fr]">
+    <%- include("./sidebar") %>
+      <main class="space-y-10 p-16">
+        <h1 class="text-5xl font-bold">Categories</h1>
+        <ul class="space-y-4">
+          <% categories.forEach((category, index)=> { %>
+            <li class="flex items-center gap-4 p-4 bg-zinc-500">
+              <p class="text-xl font-bold">
+                <%= index + 1 %>
+              </p>
+              <a href=<%=category.url %>>
+                <h2 class="text-xl font-semibold">
+                  <%= category.name %>
+                </h2>
+                <p>
+                  <%= category.description %>
+                </p>
+              </a>
+            </li>
+            <% }); %>
+        </ul>
+      </main>
+  </div>
+</body>
+
+</html>

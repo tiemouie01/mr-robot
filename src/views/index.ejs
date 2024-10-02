@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/stylesheets/output.css" />
+  <title>Grocery | <%= title %>
+  </title>
+</head>
+
+<body class="dark:bg-black dark:text-white grid">
+  <div class="grid md:grid-cols-[auto_1fr]">
+    <%- include("./sidebar") %>
+      <main class="flex flex-col justify-center gap-4 items-center">
+        <h1 class="text-5xl font-bold">Welcome to e-msika</h1>
+        <p class="text-xl">Your one-stop online shop for groceries</p>
+        <section class="flex gap-4 text-xl font-semibold items-center justify-center">
+          <p>
+            Categories: <span class="font-bold">
+              <%= category_count %>
+            </span>
+          </p>
+          <p>Items: <span class="font-bold">
+              <%= item_count %>
+            </span></p>
+        </section>
+      </main>
+  </div>
+</body>
+
+</html>
