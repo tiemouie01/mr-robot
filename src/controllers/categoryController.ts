@@ -7,7 +7,7 @@ import expressAsyncHandler from "express-async-handler";
 import { z, ZodError } from "zod";
 
 // Define form schema for category
-export const categoryFormSchema = z.object({
+const categoryFormSchema = z.object({
   name: z
     .string()
     .trim()
@@ -18,6 +18,20 @@ export const categoryFormSchema = z.object({
     .trim()
     .min(3, { message: "Description must have at least 3 characters" })
     .max(255, { message: "Description must have at most 255 characters" }),
+});
+
+const updateCategoryFormSchema = z.object({
+  name: z
+    .string()
+    .trim()
+    .min(3, { message: "Name must have at least 3 characters" })
+    .max(255, { message: "Name must have at most 255 characters" }),
+  description: z
+    .string()
+    .trim()
+    .min(3, { message: "Description must have at least 3 characters" })
+    .max(255, { message: "Description must have at most 255 characters" }),
+  id: z.string(),
 });
 
 // DEFINE CATEGORY CONTROLLER
@@ -153,7 +167,7 @@ const categoryController = {
   category_update_post: expressAsyncHandler(
     async (req: Request, res: Response) => {
       try {
-        categoryFormSchema.parse(req.body);
+        updateCategoryFormSchema.parse(req.body);
 
         // Create new category with id retrieved from form.
         const category = new Category({
