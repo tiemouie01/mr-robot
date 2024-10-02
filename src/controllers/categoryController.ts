@@ -156,7 +156,7 @@ const categoryController = {
       }
 
       res.render("category_form", {
-        title: "Update genre",
+        title: "Update Category",
         category: category,
         errors: null,
       });
