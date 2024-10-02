@@ -13,7 +13,9 @@
   <div class="grid md:grid-cols-[auto_1fr]">
     <%- include("./sidebar") %>
       <main class="flex flex-col gap-4 justify-center items-center bg-zinc-700">
-        <h1 class="text-5xl font-bold">Create Category</h1>
+        <h1 class="text-5xl font-bold">
+          <%= title %>
+        </h1>
         <form class="p-16 bg-black rounded-xl shadow-lg space-y-2" method="post">
           <div class="grid">
             <label class="text-xl" for="name">Name:</label>
@@ -27,6 +29,7 @@
               placeholder="All sorts of electronics ranging from phones to laptops..."
               value="<%= category === null ? "" : category.description %>" />
           </div>
+          <input type="text" name="id" value="<%= category === null ? "" : category._id %>" hidden>
           <button class="flex m-auto p-4 text-xl fond-medium bg-white text-black rounded-xl"
             type="submit">Submit</button>
         </form>
@@ -34,7 +37,7 @@
           <ul>
             <% errors.forEach((error)=> { %>
               <li>
-                <%= error.msg %>
+                <%= error.message %>
               </li>
               <% }); %>
           </ul>
