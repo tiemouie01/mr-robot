@@ -34,7 +34,7 @@ const updateItemFormSchema = z.object({
     .number()
     .min(0.01, { message: "Price must be at least 0.01" }),
   stock: z.coerce.number().min(0, { message: "Stock must be at least 0" }),
-  id: z.string(),
+  id: z.string({ message: "An id is required" }),
 });
 
 const itemController = {
