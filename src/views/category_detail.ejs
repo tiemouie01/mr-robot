@@ -21,33 +21,37 @@
             <%= category.description %>
           </p>
         </header>
-        <section class="space-y-4">
-          <h2 class="text-xl font-semibold text-red-600">Items in Category</h2>
-          <% if (categoryItems.length> 0) { %>
-            <div class="grid gap-4 lg:grid-cols-3">
-              <% categoryItems.forEach((item)=> { %>
-                <a class="flex flex-col gap-4 p-4 backdrop:bg-white text-white backdrop-blur-lg rounded-lg border-4 border-red-600"
-                  href=<%=item.url %>>
-                  <h3 class="text-xl font-semibold">
-                    <%= item.name %>
-                  </h3>
-                  <p>
-                    <%= item.description %>
-                  </p>
-                </a>
-                <% }); %>
-                  <% } else { %>
-                    <p>There are no items in this category.</p>
-                    <% } %>
 
-            </div>
-            <div>
-              <button class="px-4 py-2 border-2 border-red-600 mr-auto font-semibold bg-white text-black rounded-xl"><a
-                  href=<%=`${category.url}/update` %>>Update</a></button>
-              <button class="px-4 py-2 mr-auto font-semibold border-2 border-red-600  bg-white text-black rounded-xl"><a
-                  href=<%=`${category.url}/delete` %>>Delete</a></button>
-            </div>
-        </section>
+        <div>
+          <section class="space-y-4">
+            <h2 class="text-xl font-semibold text-red-600">Items in Category</h2>
+            <% if (categoryItems.length> 0) { %>
+              <div class="grid gap-4 lg:grid-cols-3">
+                <% categoryItems.forEach((item)=> { %>
+                  <a class="flex flex-col gap-4 p-4 backdrop:bg-white text-white backdrop-blur-lg rounded-lg border-4 border-red-600"
+                    href=<%=item.url %>>
+                    <h3 class="text-xl font-semibold">
+                      <%= item.name %>
+                    </h3>
+                    <p>
+                      <%= item.description %>
+                    </p>
+                  </a>
+                  <% }); %>
+                    <% } else { %>
+                      <p>There are no items in this category.</p>
+                      <% } %>
+              </div>
+              <div class="row-start-2">
+                <button
+                  class="px-4 py-2 border-2 border-red-600 mr-auto font-semibold bg-white text-black rounded-xl"><a
+                    href=<%=`${category.url}/update` %>>Update</a></button>
+                <button
+                  class="px-4 py-2 mr-auto font-semibold border-2 border-red-600  bg-white text-black rounded-xl"><a
+                    href=<%=`${category.url}/delete` %>>Delete</a></button>
+              </div>
+          </section>
+        </div>
         <%- include("./mobile-sidebar") %>
       </main>
   </div>
