@@ -12,17 +12,30 @@
 <body class="dark:bg-black dark:text-white grid">
   <div class="grid md:grid-cols-[auto_1fr]">
     <%- include("./sidebar") %>
-      <main class="space-y-10 p-16">
-        <h1 class="text-5xl font-bold">List of All Items</h1>
-        <ul class="space-y-4">
+      <main class="flex flex-col gap-4 lg:p-16 p-8 h-dvh overflow-y-scroll">
+        <div class="flex justify-between">
+          <h1 class="text-3xl font-bold text-red-600">Items</h1>
+          <button class="bg-white text-black rounded-xl border-2 border-red-600"><a href="/shop/item/create"
+              class="flex gap-2 py-2 px-4">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                stroke="currentColor" class="size-6 text-red-600">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+              </svg>
+              <p class="font-semibold">Create</p>
+            </a>
+          </button>
+        </div>
+        <ul class="grid lg:grid-cols-2 gap-2 lg:gap-8">
           <% items.forEach((item, index)=> { %>
-            <li class="flex items-center gap-4 p-4 bg-zinc-500">
-              <p class="text-xl font-bold">
-                <%= index + 1 %>
-              </p>
+            <li
+              class="flex items-center gap-4 p-4 backdrop:bg-white text-white backdrop-blur-lg rounded-lg border-4 border-red-600">
+              <img class="w-[150px] h-auto" src=<%=item.image_url ? item.image_url : "/img/place-holder.jpg" %>
+              alt="">
               <a href=<%=item.url %>>
                 <h2 class="text-xl font-semibold">
-                  <%= item.name %> | <%= item.category.name %>
+                  <%= item.name %> <span class="font-bold text-red-600">|</span>
+                    <%= item.category.name %>
                 </h2>
                 <p>
                   <%= item.description %>
@@ -31,6 +44,7 @@
             </li>
             <% }); %>
         </ul>
+        <%- include("./mobile-sidebar") %>
       </main>
   </div>
 </body>

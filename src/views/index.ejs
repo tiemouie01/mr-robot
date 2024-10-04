@@ -10,21 +10,25 @@
 </head>
 
 <body class="dark:bg-black dark:text-white grid">
-  <div class="grid md:grid-cols-[auto_1fr]">
+  <div class="grid lg:grid-cols-[auto_1fr]">
     <%- include("./sidebar") %>
-      <main class="flex flex-col justify-center gap-4 items-center">
-        <h1 class="text-5xl font-bold">Welcome to e-msika</h1>
-        <p class="text-xl">Your one-stop online shop for groceries</p>
-        <section class="flex gap-4 text-xl font-semibold items-center justify-center">
-          <p>
-            Categories: <span class="font-bold">
-              <%= category_count %>
-            </span>
-          </p>
-          <p>Items: <span class="font-bold">
-              <%= item_count %>
-            </span></p>
-        </section>
+      <main class="flex flex-col lg:flex-row lg:p-20 p-8 h-dvh overflow-y-scroll">
+        <div class="vr w-[300px] hidden lg:block"></div>
+        <div class="flex-1 flex flex-col lg:justify-center mt-16 lg:mt-0 gap-4 items-center">
+          <h1 class="text-5xl font-bold">Welcome to <span class="text-red-500">Mr Robot</span></h1>
+          <p class="text-xl">Next-level inventory management</p>
+          <section class="flex gap-4 text-xl font-semibold items-center justify-center">
+            <p>
+              Categories: <span class="font-bold text-red-600">
+                <%= category_count %>
+              </span>
+            </p>
+            <p>Items: <span class="font-bold text-red-600">
+                <%= item_count %>
+              </span></p>
+          </section>
+        </div>
+        <%- include("./mobile-sidebar") %>
       </main>
   </div>
 </body>

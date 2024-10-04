@@ -14,7 +14,7 @@
     <%- include("./sidebar") %>
       <main class="flex flex-col p-16 gap-4">
         <header class="space-y-2">
-          <h1 class="text-5xl font-bold">
+          <h1 class="text-3xl text-red-600 font-bold">
             <%= category.name %>
           </h1>
           <p class="text-xl font-medium">
@@ -22,11 +22,12 @@
           </p>
         </header>
         <section class="space-y-4">
-          <h2 class="text-3xl font-semibold">Items in Category</h2>
+          <h2 class="text-xl font-semibold text-red-600">Items in Category</h2>
           <% if (categoryItems.length> 0) { %>
-            <div class="grid gap-4 grid-cols-2">
+            <div class="grid gap-4 lg:grid-cols-3">
               <% categoryItems.forEach((item)=> { %>
-                <a class="grid p-4 bg-zinc-500" href=<%=item.url %>>
+                <a class="flex flex-col gap-4 p-4 backdrop:bg-white text-white backdrop-blur-lg rounded-lg border-4 border-red-600"
+                  href=<%=item.url %>>
                   <h3 class="text-xl font-semibold">
                     <%= item.name %>
                   </h3>
@@ -38,14 +39,16 @@
                   <% } else { %>
                     <p>There are no items in this category.</p>
                     <% } %>
-                      <div>
-                        <button class="p-4 mr-auto text-xl fond-medium bg-white text-black rounded-xl"><a
-                            href=<%=`${category.url}/update` %>>Update</a></button>
-                        <button class="p-4 mr-auto text-xl fond-medium bg-white text-black rounded-xl"><a
-                            href=<%=`${category.url}/delete` %>>Delete</a></button>
-                      </div>
+
+            </div>
+            <div>
+              <button class="px-4 py-2 border-2 border-red-600 mr-auto font-semibold bg-white text-black rounded-xl"><a
+                  href=<%=`${category.url}/update` %>>Update</a></button>
+              <button class="px-4 py-2 mr-auto font-semibold border-2 border-red-600  bg-white text-black rounded-xl"><a
+                  href=<%=`${category.url}/delete` %>>Delete</a></button>
             </div>
         </section>
+        <%- include("./mobile-sidebar") %>
       </main>
   </div>
 </body>

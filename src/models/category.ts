@@ -4,6 +4,7 @@ const CategorySchema = new Schema(
   {
     name: String,
     description: String,
+    image_url: String,
   },
   {
     virtuals: {
