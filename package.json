@@ -5,6 +5,7 @@
   "main": "dist/src/index.js",
   "scripts": {
     "build": "npx tsc",
+    "postbuild": "copyfiles -u 1 src/views/**/* dist/src/views && copyfiles -u 1 src/public/**/* dist/src/public",
     "start": "node dist/src/index.js",
     "dev": "nodemon src/index.ts",
     "style": "pnpx tailwindcss -i ./src/public/stylesheets/input.css -o ./src/public/stylesheets/output.css --watch"
@@ -28,6 +29,7 @@
   "devDependencies": {
     "@types/express": "^5.0.0",
     "@types/node": "^22.7.4",
+    "copyfiles": "^2.4.1",
     "nodemon": "^3.1.7",
     "tailwindcss": "^3.4.13",
     "ts-node": "^10.9.2",
