@@ -2,10 +2,10 @@
   "name": "ts-inventory-app",
   "version": "1.0.0",
   "description": "",
-  "main": "./dist/index.js",
+  "main": "dist/src/index.js",
   "scripts": {
     "build": "npx tsc",
-    "start": "node ./dist/index.js",
+    "start": "node dist/src/index.js",
     "dev": "nodemon src/index.ts",
     "style": "pnpx tailwindcss -i ./src/public/stylesheets/input.css -o ./src/public/stylesheets/output.css --watch"
   },
